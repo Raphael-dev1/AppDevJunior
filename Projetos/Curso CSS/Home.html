@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <style>
+    html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
+
+      .form-signin {
+        max-width: 330px;
+        padding: 15px;
+      }
+
+      .form-signin .form-floating:focus-within {
+        z-index: 2;
+      }
+
+      .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+  </style>
+  <script src="javascript/create_post-it.js"></script>
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body class="text-center">
+    
+  <main class="form-signin w-100 m-auto">
+    <form>
+      <img src="Imagens/post-it.png" alt="post-it" width="100px" height="100px">
+      <h1 class="h3 mb-3 fw-normal">Create Post-It</h1>
+  
+      <div class="form-floating">
+        <input type="number" class="form-control" id="pit_w" placeholder="Post-It Width">
+        <label for="pit_w">Post-It Width</label>
+      </div>
+      <div class="form-floating">
+        <input type="number" class="form-control" id="pit_h" placeholder="Post-It Height">
+        <label for="pit_h">Post-It Height</label>
+      </div>
+  
+      <div class="checkbox mb-3 my-3">
+        <label>
+          <input type="color" id="pit_color"> Post-It Background-color
+        </label>
+      </div>
+
+    
+      </div>
+      <button class="w-100 btn btn-outline-warning" type="button" onclick="verifie_pos_it()" id="v_btn">Create</button>
+      
+    </form>
+
+    <div class="w-100 m-auto">
+      <ul id="pos_its_ul">
+        <li>
+          <div class="" id="0">
+            <textarea  id="pt0" cols="10" rows="5"></textarea>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </main>
+  
+  
+      
+    
+  
+  </body>
+</html>

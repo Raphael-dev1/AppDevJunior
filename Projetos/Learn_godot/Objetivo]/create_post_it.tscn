@@ -1,0 +1,174 @@
+[gd_scene load_steps=8 format=3 uid="uid://biu3ny1c1fef0"]
+
+[ext_resource type="Script" path="res://Objetivo]/Scripts/create_post_it.gd" id="1_1wkyn"]
+[ext_resource type="Texture2D" uid="uid://deqo0hur5h6nf" path="res://Objetivo]/Textures/Close_btn_png.png" id="2_68pn5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6gxw"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03wqj"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_tsfps"]
+font_size = 30
+outline_size = 4
+outline_color = Color(1, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bh8go"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.223529, 0.223529, 0.223529, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkmwn"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0, 0, 0.94902, 1)
+shadow_size = 5
+shadow_offset = Vector2(2, 0)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1wkyn")
+
+[node name="Background" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pit_propetys" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pit_w" type="LineEdit" parent="Pit_propetys"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 11.7
+anchor_top = 4.775
+anchor_right = 14.95
+anchor_bottom = 5.55
+offset_bottom = -1.52588e-05
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_p6gxw")
+placeholder_text = "Post-it Width"
+alignment = 1
+max_length = 4
+expand_to_text_length = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Pit_h" type="LineEdit" parent="Pit_propetys"]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 242.0
+offset_right = 598.0
+offset_bottom = 273.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_03wqj")
+placeholder_text = "Post-it Height"
+alignment = 1
+max_length = 3
+
+[node name="Pit_c" type="ColorPicker" parent="Pit_propetys"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.569444
+anchor_top = 0.209877
+anchor_right = 0.569444
+anchor_bottom = 0.209877
+offset_left = 681.222
+offset_top = 151.605
+offset_right = 955.222
+offset_bottom = 492.605
+scale = Vector2(0.5, 0.5)
+alignment = 1
+picker_shape = 2
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="Label" parent="Pit_propetys/Pit_c"]
+layout_mode = 2
+text = "Post-it Background Color"
+label_settings = SubResource("LabelSettings_tsfps")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Create_pos_it_btn" type="Button" parent="Pit_propetys"]
+layout_mode = 0
+offset_left = 501.0
+offset_top = 300.0
+offset_right = 559.0
+offset_bottom = 329.0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_bh8go")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wkmwn")
+text = "Create"
+icon_alignment = 2
+
+[node name="Pit_position" type="Marker2D" parent="."]
+position = Vector2(523, 404)
+
+[node name="close_btn_tm" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -91.0
+offset_right = -51.0
+offset_bottom = 40.0
+texture_normal = ExtResource("2_68pn5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="Pit_propetys/Create_pos_it_btn" to="." method="_on_create_pos_it_btn_pressed"]
