@@ -1,4 +1,5 @@
-raphael_gl13
+
+
 
 
 git remote add origin --link do repositório-- - vai definir o repositorio que no qual iremos dar pull ou push-basicamente a origem-
