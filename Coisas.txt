@@ -1,3 +1,7 @@
 raphael_gl13
 
+
 git remote add origin --link do repositório-- - vai definir o repositorio que no qual iremos dar pull ou push-basicamente a origem-
+
+git branch [nome do branch] -- vai criar um branch
+git checkout[nome do branch]-- muda de branch--muda para um branch existente
