@@ -162,6 +162,7 @@ let Confirmar_Exclusao = function(id){
     
     let msg = document.getElementById("mensagem")
     msg.innerHTML = "Deseja Excluir a linha #"+id
+    msg.innerHTML += "<div class = 'text-bg-danger text-center text-info'><p>A Exclusão ocorrerá na perda deste dados!!!</p></div> "
 
     let Excluir = function(){
         
