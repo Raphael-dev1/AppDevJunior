@@ -54,7 +54,7 @@
     
     <main class="container">
           <div class="container text-center mb-4 mt-4">
-            <h1 class="text-black h1">Extrato de contas Particulares</h1>
+            <h1 class="text-black h1"><strong>Extrato de contas Particulares</strong></h1>
           </div>
        
             <form>
@@ -113,10 +113,10 @@
                             <td>Moradia</td>
                             <td>Aluguél apartamento</td>
                             <td>18/05/2022</td>
-                            <td>17/05/2022</td>
+                            <td id="Dt_Baixa_Id1">17/05/2022</td>
                             <td>850,00</td>
                             <td>
-                                <button type="button" class="btn btn-warning">
+                                <button type="button" class="btn btn-warning" onclick="Baixar_Contas(1)">
                                     <i class="fa fa-money"></i>
                                     Baixar
                                 </button>
@@ -136,10 +136,10 @@
                             <td>Financiamentos</td>
                             <td>Parcela carro novo</td>
                             <td class="data-centralizada">28/06/2022</td>
-                            <td class="data-centralizada">19/07/2024</td>
+                            <td class="data-centralizada" id="Dt_Baixa_Id2">19/07/2024</td>
                             <td class="valor-direita">1.200,00</td>
                             <td>
-                                <button type="button" class="btn btn-warning">
+                                <button type="button" class="btn btn-warning" onclick="Baixar_Contas(2)">
                                     <i class="fa fa-money"></i>
                                     Baixar
                                 </button>
@@ -160,23 +160,41 @@
             
     </main>
         
-    <footer class=" p-3 bg-dark fixed-bottom">
+    <footer class=" p-3 bg-info  fixed-bottom">
         <div class="text-center">
-            <div class="text-white">
-                WebApp dev junior 
+            <div class="">
+                <strong>WebApp dev junior</strong>  
                 <br>
-                <a href="https://www.instagram.com/raphael_gl22/" class="text-white" id = "instagram">
+                <a href="https://www.instagram.com/raphael_gl22/" class="" id = "instagram">
                     <i class="fa fa-instagram p-2"></i>
                 </a>
             
-                <a href="mailto:rafinhafff70@gmail.com" class="m-2 text-white">
+                <a href="mailto:rafinhafff70@gmail.com" class="m-2 ">
                     <i class="fa fa-envelope"></i>
                 </a>
 
-                whatsapp = 11-99712-1671
+                <strong> whatsapp = 11-99712-1671 </strong>
             </div>
         </div>
     </footer>
-
+    <!-- Modal -->
+    <div class="modal fade" id="ModalIndex" tabindex="-1" aria-labelledby="ModalIndexLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="ModalIndexLabel">Confirmação </h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p id="mensagem" class=""></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-outline-primary" id="confirm_btn">Confirmar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
 </body>
 </html>

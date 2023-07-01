@@ -40,12 +40,16 @@ let carregar_grid_contas = function(){
     dados.forEach(e =>{
           
           let linha = tabela.insertRow(-1);
+          linha.setAttribute("class","text-bg-light ")
           linha.setAttribute("id",e.id)
           linha.insertCell(0).innerHTML = e.id
           linha.insertCell(1).innerHTML = e.categoria
           linha.insertCell(2).innerHTML = e.descricao
           linha.insertCell(3).innerHTML = e.dataVencto
-          linha.insertCell(4).innerHTML = e.dataPagto
+          let celulaData = linha.insertCell(4)
+
+          celulaData.innerHTML = e.dataPagto
+          celulaData.setAttribute("id","Dt_Baixa_Id" +e.id)
           linha.insertCell(5).innerHTML = e.valor
 
 
@@ -57,6 +61,9 @@ let carregar_grid_contas = function(){
           btn_baixar.className = "btn btn-warning m-1"
         
           btn_baixar.innerHTML = " Baixar "
+          btn_baixar.addEventListener("click",function(){
+            Baixar_Contas(e.id)
+          },false)
 
           let icone_baixar = document.createElement('i')
           icone_baixar.className = "fa fa-money"
@@ -101,7 +108,26 @@ window.onload = function(){
     
 }
 
+let Baixar_Contas = function(id){
+    const modal = new bootstrap.Modal('#ModalIndex',{
+        focus: true,keyboard: true
+    })
+    
+    let msg = document.getElementById("mensagem")
+    msg.innerHTML = "Deseja Confirmar o Pagamento desta conta"
+    let Confirmar_Baixar = function(){
+        let celula = document.getElementById("Dt_Baixa_Id" +id)
+        let data = new Date()
 
+        celula.innerHTML = data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear()
+        modal.hide()
+    }
+    let confirm_btn = document.getElementById("confirm_btn")
+    confirm_btn.onclick = Confirmar_Baixar
+   
+    modal.show()
+
+}
 
 let cadastrar_extrato =  function(){
 
@@ -130,63 +156,7 @@ let refresh = function(){
      for(var i = tabela.rows.length - 1; i> 0;i--){
         tabela.deleteRow(i)
     }
-    dados.forEach(e =>{
-          
-        let linha = tabela.insertRow(-1);
-        linha.setAttribute("id",e.id)
-        linha.setAttribute("class",'bg-light text-black ')
-        linha.insertCell(0).innerHTML = e.id
-        linha.insertCell(1).innerHTML = e.categoria
-        linha.insertCell(2).innerHTML = e.descricao
-        linha.insertCell(3).innerHTML = e.dataVencto
-        linha.insertCell(4).innerHTML = e.dataPagto
-        linha.insertCell(5).innerHTML = e.valor
-
-
-        let acoes = linha.insertCell(6)
-
-
-        let btn_baixar = document.createElement("button")
-        btn_baixar.type = "button"
-        btn_baixar.className = "btn btn-warning m-1"
-      
-        btn_baixar.innerHTML = " Baixar "
-
-        let icone_baixar = document.createElement('i')
-        icone_baixar.className = "fa fa-money"
-
-        btn_baixar.insertBefore(icone_baixar,btn_baixar.firstChild)
-
-        acoes.appendChild(btn_baixar)
-
-        let btn_editar = document.createElement("button")
-        btn_editar.type = "button"
-        btn_editar.className = "btn btn-primary m-1"
-        btn_editar.innerText = " editar "
-
-        let icone_editar = document.createElement('i')
-        icone_editar.className = "fa fa-edit"
-
-        btn_editar.insertBefore(icone_editar,btn_editar.firstChild)
-
-        acoes.appendChild(btn_editar)
-
-        let btn_excluir = document.createElement("button")
-        btn_excluir.type = "button"
-        btn_excluir.className = "btn btn-danger m-1"
-        btn_excluir.innerText = " Excluir "
-        btn_excluir.onclick = function(){
-          excluir_rgs(e.id)
-        }
-
-        let icone_excluir = document.createElement('i')
-        icone_excluir.className = "fa fa-trash"
-
-        btn_excluir.insertBefore(icone_excluir,btn_excluir.firstChild)
-
-        acoes.appendChild(btn_excluir)
-        
-      }
-  )
+    carregar_grid_contas()
+  
 
 }
