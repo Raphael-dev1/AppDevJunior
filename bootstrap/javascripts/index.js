@@ -21,13 +21,7 @@ let dados = [
 ]
 let idn = 5
 
-let excluir_rgs = function(id){
-    let tr = document.getElementById(id)
-    
-    if(confirm("Deseja excluir ?" + " #" + id) == true){
-        tr.remove()
-    }
-}
+
 
 let carregar_grid_contas = function(){
 
@@ -88,9 +82,9 @@ let carregar_grid_contas = function(){
           btn_excluir.type = "button"
           btn_excluir.className = "btn btn-danger m-1"
           btn_excluir.innerText = " Excluir "
-          btn_excluir.onclick = function(){
-            excluir_rgs(e.id)
-          }
+          btn_excluir.addEventListener("click",function(){
+            Confirmar_Exclusao(e.id)
+          },false)
 
           let icone_excluir = document.createElement('i')
           icone_excluir.className = "fa fa-trash"
@@ -118,7 +112,7 @@ let Baixar_Contas = function(id){
     let Confirmar_Baixar = function(){
         let celula = document.getElementById("Dt_Baixa_Id" +id)
         let data = new Date()
-
+        
         celula.innerHTML = data.getDate() + "/" + data.getMonth() + "/" + data.getFullYear()
         modal.hide()
     }
@@ -159,4 +153,24 @@ let refresh = function(){
     carregar_grid_contas()
   
 
+}
+
+let Confirmar_Exclusao = function(id){
+    const modal = new bootstrap.Modal('#ModalIndex',{
+        focus: true,keyboard: true
+    })
+    
+    let msg = document.getElementById("mensagem")
+    msg.innerHTML = "Deseja Excluir a linha #"+id
+
+    let Excluir = function(){
+        
+        let linha = document.getElementById(id)
+        linha.remove()
+        modal.hide()
+    }
+
+    let confirm_btn = document.getElementById("confirm_btn")
+    confirm_btn.onclick = Excluir
+    modal.show()
 }
